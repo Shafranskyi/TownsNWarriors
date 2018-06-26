@@ -13,8 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using TownsAndWarriors.window;
-
 namespace TownsAndWarriors {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -22,14 +20,25 @@ namespace TownsAndWarriors {
 	public partial class MainWindow : Window {
 		public MainWindow() {
 			InitializeComponent();
-			this.KeyDown += (a,b)=> {
-				GameWindow gameWindow = new GameWindow();
-				gameWindow.Show();
-				this.Close();
+			this.Background = new SolidColorBrush(new Color() { B = f, R = f, G = f, A = 255 });
+			this.KeyDown += MainWindow_Initialized;
+		}
 
-				Game game = new Game(gameWindow);
-				game.Play();
-			};
+		Random r = new Random();
+		byte f => (byte)r.Next(0, 256);
+
+		static int a = 0;
+		private void MainWindow_Initialized(object sender, EventArgs e) {
+			if (++a != 10) {
+				System.Threading.Thread.Sleep(100);
+				var a = new MainWindow();
+				a.Show();
+				a.Top = this.Top;
+				a.Left = this.Left;
+				a.Height = this.Height;
+				a.Width = this.Width;
+				this.Close();
+			}
 		}
 	}
 }

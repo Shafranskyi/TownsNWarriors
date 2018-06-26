@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TownsAndWarriors {
-	public partial class GameCell : GameCellDrawableObj {
+	public class GameCell {
 		//---------------------------------------------- Fields ----------------------------------------------
 		Lazy<List<BasicUnit>> units;
 

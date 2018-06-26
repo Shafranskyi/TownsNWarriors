@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TownsAndWarriors {
-	public class BasicUnit : GameCellDrawableObj {
+	public abstract class GameCellDrawableObj {
 		//---------------------------------------------- Fields ----------------------------------------------
 
 		//---------------------------------------------- Properties ----------------------------------------------
@@ -14,10 +14,6 @@ namespace TownsAndWarriors {
 		//---------------------------------------------- Ctor ----------------------------------------------
 
 		//---------------------------------------------- Methods ----------------------------------------------
-
-		//---------------------------------------------- IO ----------------------------------------------
-		public override void DrawOnGameCell() {
-			throw new NotImplementedException();
-		}
+		public abstract void DrawOnGameCell();
 	}
 }
